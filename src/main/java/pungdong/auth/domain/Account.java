@@ -9,7 +9,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Account {
     @Id

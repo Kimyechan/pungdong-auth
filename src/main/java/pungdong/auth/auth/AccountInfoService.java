@@ -18,7 +18,7 @@ public class AccountInfoService implements UserDetailsService {
 
         Account account = accountRepository.findById(Long.valueOf(id)).orElseThrow();
 
-        if(account == null) {
+        if (account == null) {
             throw new UsernameNotFoundException("wrongId");
         }
 
