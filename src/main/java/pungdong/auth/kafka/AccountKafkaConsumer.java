@@ -11,7 +11,7 @@ import pungdong.auth.domain.Account;
 public class AccountKafkaConsumer {
     private final AccountRepository accountRepository;
 
-    @KafkaListener(topics = "account", groupId = "auth")
+    @KafkaListener(topics = "account", groupId = "auth-create")
     public void consumeAccountCreateEvent(AccountTokenInfo accountTokenInfo) {
         Account account = Account.builder()
                 .id(Long.valueOf(accountTokenInfo.getId()))
@@ -22,7 +22,7 @@ public class AccountKafkaConsumer {
         accountRepository.save(account);
     }
 
-    @KafkaListener(topics = "update-account", groupId = "auth")
+    @KafkaListener(topics = "update-account", groupId = "auth-update")
     public void consumeAccountUpdateEvent(AccountTokenInfo accountTokenInfo) {
         Account account = Account.builder()
                 .id(Long.valueOf(accountTokenInfo.getId()))
